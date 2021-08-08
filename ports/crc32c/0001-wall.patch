@@ -1,0 +1,12 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 6696453..4993bcb 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -42,7 +42,6 @@ if(CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
+ else(CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
+   # Use -Wall for clang and gcc.
+   if(NOT CMAKE_CXX_FLAGS MATCHES "-Wall")
+-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall")
+   endif(NOT CMAKE_CXX_FLAGS MATCHES "-Wall")
+
+   # Use -Wextra for clang and gcc.

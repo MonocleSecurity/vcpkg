@@ -46,7 +46,7 @@ else()
     set(LIB_PATH_VAR "LIBRARY_PATH")
 endif()
 
-set(OPTIONS "--enable-pic --disable-doc --enable-debug --enable-runtime-cpudetect")
+set(OPTIONS "--enable-pic --disable-doc --enable-debug --enable-runtime-cpudetect --disable-mediafoundation --disable-encoder=aac_mf_encoder_deps --disable-encoder=ac3_mf_encoder_deps --disable-encoder=h264_mf_encoder_deps --disable-encoder=hevc_mf_encoder_deps --disable-encoder=mp3_mf_encoder_deps")
 
 if(VCPKG_TARGET_ARCHITECTURE STREQUAL "arm")
   set(OPTIONS "${OPTIONS} --disable-asm --disable-x86asm")

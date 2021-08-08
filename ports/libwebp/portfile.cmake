@@ -13,6 +13,7 @@ vcpkg_from_github(
     0007-fix-arm-build.patch
     0008-sdl.patch
     0009-glut.patch
+    0010-options.patch
 )
 
 vcpkg_check_features(OUT_FEATURE_OPTIONS FEATURE_OPTIONS

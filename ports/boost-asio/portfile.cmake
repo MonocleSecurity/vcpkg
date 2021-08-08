@@ -9,6 +9,7 @@ vcpkg_from_github(
     PATCHES
         windows_alloca_header.patch
         inline_dummy_return.patch
+		x509_name.patch
 )
 
 include(${CURRENT_INSTALLED_DIR}/share/boost-vcpkg-helpers/boost-modular-headers.cmake)

@@ -1,0 +1,15 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 6538ce9e6..b63d4e78e 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -495,6 +495,10 @@ if(WEBP_BUILD_VWEBP)
+   endif()
+ endif()
+ 
++if(${CMAKE_SYSTEM_PROCESSOR} STREQUAL "armv7l")
++  target_compile_options(webpencode PRIVATE "-march=armv7-a" "-mfpu=neon")
++endif()
++
+ if(WEBP_BUILD_WEBPINFO)
+   # webpinfo
+   include_directories(${WEBP_DEP_IMG_INCLUDE_DIRS})
