@@ -382,6 +382,10 @@ vcpkg_cmake_configure(
         -DOPENCV_GENERATE_SETUPVARS=OFF
         # Do not build docs/examples
         -DBUILD_DOCS=OFF
+-DWITH_TESSERACT=OFF
+-DWITH_TEXT=OFF
+-DBUILD_WITH_TESSERACT=OFF
+-DBUILD_WITH_TEXT=OFF
         -DBUILD_EXAMPLES=OFF
         -Dade_DIR=${ADE_DIR}
         ###### Disable build 3rd party libs
