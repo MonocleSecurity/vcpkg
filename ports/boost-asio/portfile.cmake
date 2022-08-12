@@ -7,6 +7,7 @@ vcpkg_from_github(
     SHA512 f4e84e4616ad9cc4fae1077e5d3de1ca4e93cf25c83b1fc4bf0130727b41cb3888516e212c89745831c33a9282cf6697742b716bc340c76939cd6335f035716f
     HEAD_REF master
     PATCHES windows_alloca_header.patch
+            x509
 )
 
 include(${CURRENT_INSTALLED_DIR}/share/boost-vcpkg-helpers/boost-modular-headers.cmake)
