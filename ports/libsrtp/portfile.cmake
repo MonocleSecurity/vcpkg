@@ -32,11 +32,11 @@ file(REMOVE_RECURSE "${CURRENT_PACKAGES_DIR}/debug/include")
 
 if(EXISTS "${CURRENT_PACKAGES_DIR}/lib/srtp2.dll")
     file(MAKE_DIRECTORY "${CURRENT_PACKAGES_DIR}/bin")
-    file(COPY "${CURRENT_PACKAGES_DIR}/lib/srtp2.dll" DESTINATION "${CURRENT_PACKAGES_DIR}/bin/srtp2.dll")
+    file(COPY "${CURRENT_PACKAGES_DIR}/lib/srtp2.dll" DESTINATION "${CURRENT_PACKAGES_DIR}/bin")
 endif()
 if(EXISTS "${CURRENT_PACKAGES_DIR}/debug/lib/srtp2.dll")
     file(MAKE_DIRECTORY "${CURRENT_PACKAGES_DIR}/debug/bin")
-    file(COPY "${CURRENT_PACKAGES_DIR}/debug/lib/srtp2.dll" DESTINATION "${CURRENT_PACKAGES_DIR}/debug/bin/srtp2.dll")
+    file(COPY "${CURRENT_PACKAGES_DIR}/debug/lib/srtp2.dll" DESTINATION "${CURRENT_PACKAGES_DIR}/debug/bin")
 endif()
 
 file(INSTALL "${SOURCE_PATH}/LICENSE" DESTINATION "${CURRENT_PACKAGES_DIR}/share/libsrtp" RENAME copyright)
