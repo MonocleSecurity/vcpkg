@@ -1,0 +1,30 @@
+diff --git a/src/impl/peerconnection.cpp b/src/impl/peerconnection.cpp
+index 235701e..93a1b2e 100644
+--- a/src/impl/peerconnection.cpp
++++ b/src/impl/peerconnection.cpp
+@@ -770,8 +770,23 @@ void PeerConnection::openTracks() {
+ }
+ 
+ void PeerConnection::closeTracks() {
+-	std::shared_lock lock(mTracksMutex); // read-only
+-	iterateTracks([&](shared_ptr<Track> track) { track->close(); });
++	std::vector<weak_ptr<Track>> tmp;
++	{
++		std::shared_lock lock(mTracksMutex); // read-only
++		tmp = mTrackLines;
++	}
++
++	for (auto it = tmp.begin(); it != tmp.end(); ++it) {
++		auto track = it->lock();
++		if (track && !track->isClosed()) {
++			try {
++				track->close();
++			} catch (const std::exception &e) {
++				PLOG_WARNING << e.what();
++			}
++		}
++	}
++
+ }
+ 
+ void PeerConnection::validateRemoteDescription(const Description &description) {
