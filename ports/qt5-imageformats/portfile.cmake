@@ -5,7 +5,7 @@ include(${CURRENT_INSTALLED_DIR}/share/qt5/qt_port_functions.cmake)
 list(APPEND CORE_OPTIONS
     -system-tiff
     -system-webp
-    -jasper 
+    #    -jasper 
     -no-mng # must be explicitly disabled to not automatically pick up mng
     -verbose)
     
