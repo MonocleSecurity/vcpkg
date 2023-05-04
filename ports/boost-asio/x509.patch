@@ -1,0 +1,13 @@
+diff --git a/include/boost/asio/ssl/impl/rfc2818_verification.ipp b/include/boost/asio/ssl/impl/rfc2818_verification.ipp
+index a07c729a5..adb58babb 100644
+--- a/include/boost/asio/ssl/impl/rfc2818_verification.ipp
++++ b/include/boost/asio/ssl/impl/rfc2818_verification.ipp
+@@ -104,7 +104,7 @@ bool rfc2818_verification::operator()(
+
+   // No match in the alternate names, so try the common names. We should only
+   // use the "most specific" common name, which is the last one in the list.
+-  X509_NAME* name = X509_get_subject_name(cert);
++  X509_name_st* name = X509_get_subject_name(cert);
+   int i = -1;
+   ASN1_STRING* common_name = 0;
+   while ((i = X509_NAME_get_index_by_NID(name, NID_commonName, i)) >= 0)
