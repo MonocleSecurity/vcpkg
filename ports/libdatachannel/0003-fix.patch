@@ -1,0 +1,23 @@
+diff --git a/src/impl/track.cpp b/src/impl/track.cpp
+index 5f4b8dc..671dd39 100644
+--- a/src/impl/track.cpp
++++ b/src/impl/track.cpp
+@@ -196,13 +196,15 @@ bool Track::transportSend([[maybe_unused]] message_ptr message) {
+ }
+
+ void Track::setMediaHandler(shared_ptr<MediaHandler> handler) {
++	shared_ptr<MediaHandler> tmp;
+ 	{
+ 		std::unique_lock lock(mMutex);
+-		if (mMediaHandler)
+-			mMediaHandler->onOutgoing(nullptr);
+-
++		tmp = mMediaHandler;
+ 		mMediaHandler = handler;
+ 	}
++	if (tmp)
++		tmp->onOutgoing(nullptr);
++
+
+ 	if (handler)
+ 		handler->onOutgoing(std::bind(&Track::transportSend, this, std::placeholders::_1));

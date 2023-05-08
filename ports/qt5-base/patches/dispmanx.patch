@@ -1,0 +1,21 @@
+diff --git a/src/gui/configure.json b/src/gui/configure.json
+index 5e6b5c017..c288b1a33 100644
+--- a/src/gui/configure.json
++++ b/src/gui/configure.json
+@@ -864,9 +864,12 @@
+             "type": "compile",
+             "test": {
+                 "include": [ "EGL/egl.h", "bcm_host.h" ],
+-                "main": "vc_dispmanx_display_open(0);"
+-            },
+-            "use": "egl bcm_host"
++                "main": [
++                    "vc_dispmanx_display_open(0);",
++                    "EGL_DISPMANX_WINDOW_T *eglWindow = new EGL_DISPMANX_WINDOW_T;"
++                ]
++             },
++             "use": "egl bcm_host"
+         },
+         "egl-egldevice": {
+             "label": "EGLDevice",
+

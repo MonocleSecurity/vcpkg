@@ -1,4 +1,4 @@
-set(PATCHES 0001-fix-for-vcpkg.patch)
+set(PATCHES 0001-fix-for-vcpkg.patch 0002-fix.patch 0003-fix.patch)
 
 if(VCPKG_TARGET_IS_UWP)
     list(APPEND PATCHES uwp-warnings.patch)
@@ -7,8 +7,8 @@ endif()
 vcpkg_from_github(
     OUT_SOURCE_PATH SOURCE_PATH
     REPO paullouisageneau/libdatachannel
-    REF "v${VERSION}"
-    SHA512 ede45221b8fb4ebc2a812f187372bc65da2a495311058e3b486ba7a2a584817ecdef286d956386a8635752786aebd5d0507bd84a84e484b9bf73ecd2dd92f918
+    REF 4df86b6ccbb348731ad4ba1e9045944cc77498bc
+    SHA512 70ab58ae92e915f4bc7b9125648ba1e6bad8c97e4c6ad8e61bd3b12a467cb0008318baafc4ad1f0664f52e1ce71ace1371b1b98b165cb3ee886adb9077b058a9
     HEAD_REF master
     PATCHES
         ${PATCHES}
