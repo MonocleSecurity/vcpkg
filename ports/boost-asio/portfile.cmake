@@ -9,6 +9,7 @@ vcpkg_from_github(
     PATCHES
         windows_alloca_header.patch
         fix_coro_compile_error_msvc.patch #upstream PR: https://github.com/chriskohlhoff/asio/pull/1313
+	x509.patch
 )
 
 include(${CURRENT_INSTALLED_DIR}/share/boost-vcpkg-helpers/boost-modular-headers.cmake)

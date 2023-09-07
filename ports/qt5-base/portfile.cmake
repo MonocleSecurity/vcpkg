@@ -46,6 +46,7 @@ endif()
 
 qt_download_submodule(  OUT_SOURCE_PATH SOURCE_PATH
                         PATCHES
+                            patches/dispmanx.patch
                             # CVE fixes from https://download.qt.io/official_releases/qt/5.15/
                             patches/CVE-2023-24607-qtbase-5.15.diff
                             patches/CVE-2023-32762-qtbase-5.15.diff
