@@ -1,0 +1,26 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 9d824cdc..a1052c3d 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -482,6 +482,8 @@ if(NOT OPUS_DISABLE_INTRINSICS)
+                                  PRIVATE
+                                  OPUS_ARM_MAY_HAVE_NEON
+                                  OPUS_ARM_MAY_HAVE_NEON_INTR)
++
++      target_compile_options(opus PRIVATE "-mfpu=neon")
+     endif()
+ 
+     add_sources_group(opus celt ${celt_sources_arm_neon_intr})
+diff --git a/cmake/OpusFunctions.cmake b/cmake/OpusFunctions.cmake
+index 3f22ad81..d301e03d 100644
+--- a/cmake/OpusFunctions.cmake
++++ b/cmake/OpusFunctions.cmake
+@@ -132,7 +132,7 @@ function(opus_detect_sse COMPILER_SUPPORT_SIMD)
+ endfunction()
+ 
+ function(opus_detect_neon COMPILER_SUPPORT_NEON)
+-  if(CMAKE_SYSTEM_PROCESSOR MATCHES "(arm|aarch64)")
++  if(CMAKE_SYSTEM_PROCESSOR MATCHES "(arm|armv71|aarch64)")
+     message(STATUS "Check NEON support by compiler")
+     check_include_file(arm_neon.h HAVE_ARM_NEON_H)
+     if(HAVE_ARM_NEON_H)
