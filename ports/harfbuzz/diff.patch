@@ -1,0 +1,13 @@
+diff --git a/meson.build b/meson.build
+index 284701222..6c3873f7c 100644
+--- a/meson.build
++++ b/meson.build
+@@ -193,7 +193,7 @@ incconfig = include_directories('.')
+ add_project_arguments('-DHAVE_CONFIG_H', language: ['c', 'cpp'])
+ 
+ warn_cflags = [
+-  '-Wno-non-virtual-dtor',
++  '-w',
+ ]
+ 
+ cpp_args = cpp.get_supported_arguments(warn_cflags)

@@ -4,6 +4,7 @@ vcpkg_from_github(
     REF ${VERSION}
     SHA512 bfad0310f0f20a900b02f3f061920e7488d4565292864eb349e71a9597a10b2305fdeb1b19ac1975444d59f7903e5308961e4b84e33c25aa23d6e588536c5c5d
     HEAD_REF master
+    PATCHES diff.patch
 )
 
 if("icu" IN_LIST FEATURES)
