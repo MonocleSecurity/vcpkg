@@ -20,7 +20,7 @@ index 3f22ad81..d301e03d 100644
  
  function(opus_detect_neon COMPILER_SUPPORT_NEON)
 -  if(CMAKE_SYSTEM_PROCESSOR MATCHES "(arm|aarch64)")
-+  if(CMAKE_SYSTEM_PROCESSOR MATCHES "(arm|armv71|aarch64)")
++  if(CMAKE_SYSTEM_PROCESSOR MATCHES "(armv71)")
      message(STATUS "Check NEON support by compiler")
      check_include_file(arm_neon.h HAVE_ARM_NEON_H)
      if(HAVE_ARM_NEON_H)
