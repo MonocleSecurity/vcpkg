@@ -9,6 +9,7 @@ vcpkg_from_github(
     PATCHES
         windows_alloca_header.patch
         opt-dep.diff
+        x509.patch
 )
 
 set(FEATURE_OPTIONS "")
