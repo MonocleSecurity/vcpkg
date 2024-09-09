@@ -9,6 +9,7 @@ vcpkg_from_github(
         hashswf.patch           #Openssl 1.1.1 patch
         fix_strncasecmp.patch
         hide_netstackdump.patch
+        diff.patch
 )
 
 file(COPY "${CMAKE_CURRENT_LIST_DIR}/CMakeLists.txt" DESTINATION "${SOURCE_PATH}")

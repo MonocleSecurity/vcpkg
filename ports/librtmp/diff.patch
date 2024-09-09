@@ -1,0 +1,12 @@
+diff --git a/librtmp/handshake.h b/librtmp/handshake.h
+index 0438486..5239e9c 100644
+--- a/librtmp/handshake.h
++++ b/librtmp/handshake.h
+@@ -1379,7 +1379,6 @@ SHandShake(RTMP * r)
+ 	   SHA256_DIGEST_LENGTH) != 0)
+ 	{
+ 	  RTMP_Log(RTMP_LOGWARNING, "%s: Client not genuine Adobe!", __FUNCTION__);
+-	  return FALSE;
+ 	}
+       else
+ 	{
