@@ -21,6 +21,7 @@ else()
     set(ENV{AUTOPOINT} true) # true, the program
     vcpkg_list(APPEND options "--disable-nls")
 endif()
+vcpkg_list(APPEND options "--disable-year2038")
 
 vcpkg_configure_make(
     AUTOCONFIG
