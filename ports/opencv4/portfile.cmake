@@ -224,6 +224,7 @@ if("contrib" IN_LIST FEATURES)
       "${CUDA_12_4_CONTRIB_FIX}"
       "${CUDA_12_4_CONTRIB_FIX_2}"
       "${CUDA_12_4_CONTRIB_FIX_3}"
+      zip.patch
   )
 
   set(BUILD_WITH_CONTRIB_FLAG "-DOPENCV_EXTRA_MODULES_PATH=${CONTRIB_SOURCE_PATH}/modules")
@@ -503,6 +504,7 @@ vcpkg_cmake_configure(
         ${ADDITIONAL_BUILD_FLAGS}
         -DBUILD_IPP_IW=${WITH_IPP}
         -DOPENCV_LAPACK_FIND_PACKAGE_ONLY=ON
+        -DCMAKE_CUDA_ARCHITECTURES=2.0,3.0,3.5,3.7,5.0,5.2,6.0,6.1,7.0,7.5,8.0,8.6,8.9,9.0
 )
 
 vcpkg_cmake_install()

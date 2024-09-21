@@ -5097,8 +5097,8 @@
       "port-version": 1
     },
     "libsystemd": {
-      "baseline": "256.4",
-      "port-version": 0
+      "baseline": "255",
+      "port-version": 2
     },
     "libtar": {
       "baseline": "1.2.20",
