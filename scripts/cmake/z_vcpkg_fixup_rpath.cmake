@@ -50,7 +50,7 @@ function(z_vcpkg_calculate_corrected_rpath)
     if(NOT relative_to_lib STREQUAL "")
         list(PREPEND rpath_norm "\$ORIGIN/${relative_to_lib}")
     endif()
-    list(PREPEND rpath_norm "\$ORIGIN") # Make ORIGIN the first entry
+    list(PREPEND rpath_norm "\$ORIGIN:\$ORIGIN/..") # Make ORIGIN the first entry
     list(TRANSFORM rpath_norm REPLACE "/$" "")
     list(REMOVE_DUPLICATES rpath_norm)
     cmake_path(CONVERT "${rpath_norm}" TO_NATIVE_PATH_LIST new_rpath)
@@ -115,7 +115,7 @@ function(z_vcpkg_fixup_rpath_in_dir)
             )
 
             execute_process(
-                COMMAND "${PATCHELF}" --set-rpath "${new_rpath}" "${elf_file}"
+                COMMAND "${PATCHELF}" --force-rpath --set-rpath "${new_rpath}" "${elf_file}"
                 OUTPUT_QUIET
                 ERROR_VARIABLE set_rpath_error
             )

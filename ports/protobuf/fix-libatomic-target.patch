@@ -1,0 +1,12 @@
+--- a/cmake/protobuf-configure-target.cmake
++++ b/cmake/protobuf-configure-target.cmake
+@@ -8,7 +8,7 @@
+ function(protobuf_configure_target target)
+-    if(protobuf_LINK_LIBATOMIC)
+-        target_link_libraries(libprotobuf PRIVATE atomic)
++    if(protobuf_LINK_LIBATOMIC AND "${target}" MATCHES "^libprotobuf")
++        target_link_libraries(${target} PRIVATE atomic)
+     endif()
+
+     target_compile_features("${target}" PUBLIC cxx_std_17)
+     if (MSVC)

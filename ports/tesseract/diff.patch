@@ -1,0 +1,12 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -105,7 +105,7 @@
+ option(ENABLE_UNITY_BUILD "Enable Unity/Jumbo builds for faster compilation" OFF)
+ option(ENABLE_PRECOMPILED_HEADERS "Enable precompiled headers for faster compilation" ON)
+ option(ENABLE_CCACHE "Enable ccache for faster incremental builds" ON)
+-option(ENABLE_NINJA_POOL "Enable Ninja job pools to manage parallelism" ON)
++option(ENABLE_NINJA_POOL "Enable Ninja job pools to manage parallelism" OFF)
+
+
+ # ##############################################################################

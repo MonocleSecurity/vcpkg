@@ -230,7 +230,7 @@ else
     rm -rf "$baseBuildDir"
     mkdir -p "$buildDir"
     vcpkgExtractArchive "$archivePath" "$srcBaseDir"
-    cmakeConfigOptions="-DCMAKE_BUILD_TYPE=Release -G 'Ninja' -DVCPKG_DEVELOPMENT_WARNINGS=OFF"
+    cmakeConfigOptions="-DCMAKE_BUILD_TYPE=Release -G 'Ninja' -DVCPKG_DEVELOPMENT_WARNINGS=OFF -DVCPKG_LIBCURL_DLSYM=OFF"
 
     if [ "${VCPKG_MAX_CONCURRENCY}" != "" ] ; then
         cmakeConfigOptions=" $cmakeConfigOptions '-DCMAKE_JOB_POOL_COMPILE:STRING=compile' '-DCMAKE_JOB_POOL_LINK:STRING=link' '-DCMAKE_JOB_POOLS:STRING=compile=$VCPKG_MAX_CONCURRENCY;link=$VCPKG_MAX_CONCURRENCY' "

@@ -1,0 +1,23 @@
+diff --git a/src/imports/audioengine/audioengine.pro b/src/imports/audioengine/audioengine.pro
+index f8d3142..5deb2b4 100644
+--- a/src/imports/audioengine/audioengine.pro
++++ b/src/imports/audioengine/audioengine.pro
+@@ -8,6 +8,18 @@ QT += quick qml multimedia-private
+ QMAKE_USE += openal
+ mac: DEFINES += HEADER_OPENAL_PREFIX
+ 
++win32 {
++    # OpenAL Soft 1.25+ pulls in {fmt} and uses WASAPI's Avrt APIs;
++    # qmake's QMAKE_USE+=openal only adds OpenAL32.lib, so add the
++    # transitive deps explicitly to fix LNK2019 on declarative_audioengine.
++    LIBS_PRIVATE += -lAvrt
++    CONFIG(debug, debug|release) {
++        LIBS_PRIVATE += -lfmtd
++    } else {
++        LIBS_PRIVATE += -lfmt
++    }
++}
++
+ INCLUDEPATH += ../../multimedia/audio
+ 
+ HEADERS += \
